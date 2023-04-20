@@ -1,0 +1,169 @@
+---
+title: "Utilizing ChatGPT for Social Psychology Research"
+author: "Bryan West"
+date: "April 17, 2023"
+format: 
+  revealjs:
+    theme: simple
+    center: true
+    slide-number: true
+    show-notes: false
+---
+
+## Introduction
+
+-   ChatGPT as a virtual research assistant
+-   Benefits for social psychology graduate students
+-   Examples and demonstrations
+
+::: notes
+-   Briefly introduce ChatGPT and its capabilities
+-   Explain the benefits it can provide to social psychology graduate students
+-   Mention that the presentation will walk through specific examples and
+    demonstrations
+:::
+
+--------------------------------------------------------------------------------
+
+## 1. Literature Review
+
+-   Identifying relevant studies
+-   Summarizing key findings
+-   Example:
+    -   Fardouly et al. (2015): Impact of social media on body image and
+        self-esteem
+
+::: notes
+-   Describe the process of using ChatGPT to find relevant literature
+-   Explain how ChatGPT can summarize key findings from studies
+-   Discuss the example of Fardouly et al. (2015) and its findings on social
+    media's impact
+:::
+
+--------------------------------------------------------------------------------
+
+## 2. Research Question Development
+
+-   Analyzing gaps in literature
+-   Suggesting new perspectives
+-   Example:
+    -   Role of online social support networks in stress management
+
+::: notes
+-   Explain how ChatGPT can identify gaps in existing literature
+-   Describe how it can suggest new perspectives and research questions
+-   Discuss the example research question on online social support networks and
+    stress management
+:::
+
+--------------------------------------------------------------------------------
+
+## 3. Research Design
+
+-   Guidance on methodologies
+-   Determining sample sizes and criteria
+-   Example:
+    -   Investigating influence of group identity on decision-making
+
+::: notes
+-   Explain how ChatGPT can provide guidance on research methodologies
+-   Describe its ability to help with sample size determination and selection
+    criteria
+-   Discuss the example research design on group identity and decision-making
+:::
+
+--------------------------------------------------------------------------------
+
+## 4. Data Collection
+
+-   Designing survey questions and interview guides
+-   Ethical considerations
+-   Example:
+    -   Survey measuring impact of cultural background on moral judgments
+
+::: notes
+-   Explain how ChatGPT can assist in creating data collection tools, like
+    surveys and interview guides
+-   Describe its capability to provide advice on ethical considerations in
+    research
+-   Discuss the example survey on the impact of cultural background on moral
+    judgments
+:::
+
+--------------------------------------------------------------------------------
+
+## 5. Data Analysis
+
+-   Data cleaning and preprocessing
+-   Appropriate statistical tests
+-   Example:
+    -   Pearson's correlation between social media usage and self-esteem
+
+::: notes
+-   Explain how ChatGPT can help with data cleaning and preprocessing
+-   Describe its ability to recommend appropriate statistical tests based on
+    research questions and data
+-   Discuss the example of using Pearson's correlation to analyze the
+    relationship between social media usage and self-esteem
+:::
+
+--------------------------------------------------------------------------------
+
+## 6. Interpretation of Findings
+
+-   Identifying trends and patterns
+-   Implications for social psychology
+-   Example:
+    -   Interpreting negative correlation between social media usage and
+        self-esteem
+
+::: notes
+-   Explain how ChatGPT can help interpret results and identify trends,
+    patterns, and relationships
+-   Describe its ability to discuss implications of findings for social
+    psychology theory and practice
+-   Discuss the example interpretation of the negative correlation between
+    social media usage and self-esteem
+:::
+
+--------------------------------------------------------------------------------
+
+## 7. Writing Assistance
+
+-   Drafting and editing research papers
+-   Ensuring clear and concise writing
+-   Example:
+    -   Introduction on the effect of perceived social status on prosocial
+        behavior
+
+::: {.notes}
+- Explain how ChatGPT can provide support in drafting and editing research papers, conference presentations, and thesis chapters 
+- Describe itsability to ensure clear, concise, and well-organized writing 
+- Discuss the example of drafting an introduction for a paper on the effect of perceived social status on prosocial behavior
+:::
+
+--------------------------------------------------------------------------------
+
+## Conclusion
+
+-   ChatGPT as a valuable resource for research
+-   Assistance in various aspects of the research process
+-   Improve efficiency and effectiveness in social psychology research
+
+::: notes
+-   Recap the ways ChatGPT can support social psychology graduate students
+-   Emphasize the benefits it offers in various stages of the research process
+-   Highlight its potential to improve efficiency and effectiveness in research
+:::
+
+--------------------------------------------------------------------------------
+
+## Questions?
+
+Feel free to ask any questions about how ChatGPT can support your research!
+
+::: notes
+-   Encourage attendees to ask questions or share their thoughts about using
+    ChatGPT in their research
+-   Be prepared to provide more examples or address any concerns they might have
+:::
