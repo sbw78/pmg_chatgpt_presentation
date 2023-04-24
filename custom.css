@@ -1,0 +1,17 @@
+.reveal .slides {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+
+.reveal .slides section {
+  margin: auto;
+  height: 100%;
+}
+
+.reveal .slides .title-slide {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}

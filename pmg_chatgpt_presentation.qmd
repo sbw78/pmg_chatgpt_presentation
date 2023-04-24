@@ -1,20 +1,28 @@
 ---
 title: "Utilizing ChatGPT for Social Psychology Research"
 author: "Bryan West"
-date: "April 17, 2023"
+institute: "Psychology Methods Group"
+date: "April 24, 2023"
 format: 
   revealjs:
-    theme: simple
+    theme: night
     center: true
     slide-number: true
     show-notes: false
+    smaller: true
+    slide-level: 4
+    toc-depth: 2
+    css: custom.css
+    link-external-newwindow: true
 ---
 
 ## Introduction
 
--   ChatGPT as a virtual research assistant
--   Benefits for social psychology graduate students
+::: incremental
+-   What is ChatGPT?
+-   Benefits and use cases for social psychology researchers
 -   Examples and demonstrations
+:::
 
 ::: notes
 -   Briefly introduce ChatGPT and its capabilities
@@ -23,99 +31,502 @@ format:
     demonstrations
 :::
 
---------------------------------------------------------------------------------
+### What is ChatGPT?
 
-## 1. Literature Review
+::: incremental
+-   An AI-powered language model by OpenAI
+-   Capable of sophisticated language processing
+-   Can understand and generate human-like text
+:::
 
--   Identifying relevant studies
+### Capabilities of ChatGPT
+
+::: incremental
+-   Context understanding and relevant information
+    -   Processes user inputs to provide contextually appropriate responses
+    -   Generates detailed and accurate information
+-   Research and writing assistance
+    -   Helps with various research-related tasks, from literature reviews to
+        manuscript editing
+-   Creative idea generation
+    -   Suggests innovative ideas for research questions and methods
+-   Tailored assistance through learning
+    -   Adapts to user inputs for more personalized assistance over time
+
+:::
+
+### Caveats
+
+::: incremental
+-   ChatGPT is still in its early stages. Lots of things will probably change in the near future. 
+-   Some of the features I will be demonstrating are only available to alpha testers, but they will likely become available to the general public soon.
+-   GPT-4 is not yet available on OpenAI's free account tier, but GPT-3.5 is still very powerful.
+    -   Many of the examples I will be showing you today were created with GPT-4.
+-   This entire presentation was created with **substantial** assistance from GPT-4.
+
+:::
+
+### Use Cases
+
+::: incremental
+-   Coding assistant
+    -   Write code to accomplish a specified task
+    -   Explicate and comment existing code
+    -   Refactoring
+    -   Troubleshooting assistance
+-   Accelerating the research process
+    -   Assist with literature reviews
+    -   Identify gaps in literature
+    -   Summarizing key findings
+-   Assisting with research question development
+    -   Explore under-researched areas and suggest new perspectives
+    
+:::
+    
+### Use Cases
+
+::: incremental
+-   Guiding research design
+    -   Recommendations for methdologies, sample sizes, and ethical
+        considerations
+    -   Design survey questions and interview scripts/guides
+-   Supporting data analysis
+    -   Suggest appropriate statistical tests
+    -   Assistance in interpreting results
+-   Aiding in the interpretation of findings
+    -   Identify trends and discuss implications for theories and interventions
+-   Providing writing assistance
+    -   Draft research papers
+    -   Proofreading
+    -   Editing for style and clarity
+
+:::
+
+### 1. Coding Assistance
+
+-   Write code to accomplish a specified task
+-   Explicate and comment existing code
+-   Refactoring
+-   Troubleshooting assistance
+
+#### Write code to accomplish a speciic task
+
+**Task:** Conduct a t-test to compare the means of two groups in a dataset
+
+**R:**
+
+```{r}
+#| label: r-code-ttest
+#| echo: true
+#| eval: false
+
+# Import data
+data <- read.csv("your_data.csv")
+
+# Conduct t-test
+t_test_result <- t.test(data$group1, data$group2)
+
+# Print results
+print(t_test_result)
+```
+
+**Python:**
+
+```{python}
+#| label: python-code-ttest
+#| echo: true
+#| eval: false
+
+import pandas as pd
+from scipy.stats import ttest_ind
+
+# Import data
+data = pd.read_csv("your_data.csv")
+
+# Conduct t-test
+t_test_result = ttest_ind(data['group1'], data['group2'])
+
+# Print results
+print(t_test_result)
+
+```
+
+#### Explicate/comment existing code
+
+**Task:** Add coments to explain the following code snippet.
+
+**R:**
+
+```{r}
+#| label: r-code-comment
+#| echo: true
+#| eval: false
+
+# Load required libraries
+library(ggplot2)
+
+# Create a scatterplot of variable1 against variable2, with color representing group
+ggplot(data, aes(x = variable1, y = variable2, color = group)) + 
+  geom_point() + 
+  theme_minimal() +
+  labs(title = "Scatterplot of Variable1 vs Variable2 by Group",
+       x = "Variable 1",
+       y = "Variable 2",
+       color = "Group")
+```
+
+**Python:**
+
+```{python}
+#| label: python-code-comment
+#| echo: true
+#| eval: false
+
+import seaborn as sns
+import matplotlib.pyplot as plt
+
+# Create a scatterplot of variable1 against variable2, with color representing group
+scatter_plot = sns.scatterplot(data=data, x='variable1', y='variable2', hue='group')
+
+# Customize plot appearance
+scatter_plot.set_title('Scatterplot of Variable1 vs Variable2 by Group')
+plt.xlabel('Variable 1')
+plt.ylabel('Variable 2')
+plt.legend(title='Group')
+plt.show()
+```
+
+#### Refactor code
+
+Task: Refactor the following code snippet to use a function.
+
+**R:**
+
+```{r}
+#| label: r-code-refactor
+#| echo: true
+#| eval: false
+
+# Original code
+data$z_score_group1 <- (data$group1 - mean(data$group1)) / sd(data$group1)
+data$z_score_group2 <- (data$group2 - mean(data$group2)) / sd(data$group2)
+
+# Refactored code using a function
+z_score <- function(x) {
+  return((x - mean(x)) / sd(x))
+}
+
+data$z_score_group1 <- z_score(data$group1)
+data$z_score_group2 <- z_score(data$group2)
+```
+
+**Python:**
+
+```{python}
+#| label: python-code-refactor
+#| echo: true
+#| eval: false
+
+# Original code
+data['z_score_group1'] = (data['group1'] - data['group1'].mean()) / data['group1'].std()
+data['z_score_group2'] = (data['group2'] - data['group2'].mean()) / data['group2'].std()
+
+# Refactored code using a function
+def z_score(x):
+    return (x - x.mean()) / x.std()
+
+data['z_score_group1'] = z_score(data['group1'])
+data['z_score_group2'] = z_score(data['group2'])
+```
+
+#### Troubleshoot code
+
+**Task:** Identify and fix issues in the following code snippet.
+
+**R:**
+
+```{r}
+#| label: r-code-troubleshoot
+#| echo: true
+#| eval: false
+
+# Original code with an issue
+data <- read.csv("your_data.csv")
+mean_group1 <- mean(data$group1, na.rm = Ture) # Typo in 'True'
+
+# Fixed code
+data <- read.csv("your_data.csv")
+mean_group1 <- mean(data$group1, na.rm = TRUE)
+```
+
+**Python:**
+
+```{python}
+#| label: python-code-troubleshoot
+#| echo: true
+#| eval: false
+
+# Original code with an issue
+import pandas as pd
+data = pd.read_csv("your_data.csv")
+mean_group1 = data['group1'].mean(na.rm=True)  # Incorrect parameter for .mean()
+
+# Fixed code
+import pandas as pd
+data = pd.read_csv("your_data.csv")
+mean_group1 = data['group1'].mean(skipna=True)
+```
+
+#### Example: Zotero Assistant
+
+I asked ChatGPT to help me write a script that would summarize article
+abstracts, selecting the articles by their folder location in my Zotero library.
+
+-   I did not know how to code in Python.
+-   I did not know how to use OpenAI's API interface.
+-   This lack of knowledge did not matter.
+
+### 2. Literature Review
+
+::: incremental
+-   Search for literature relevant to research question
 -   Summarizing key findings
--   Example:
-    -   Fardouly et al. (2015): Impact of social media on body image and
-        self-esteem
+-   Analyze gaps in research literature
+-   Example prompt:
+    -   *"Find relevant research literature in social psychology on the impact
+        of social media on self-esteem, providing a summary of key findings and
+        identifying research gaps."*
+    -   [ChatGPT's response](https://chat.openai.com/c/2555d9a6-7a61-49b1-a199-d25f09115b13){target="_blank"}
+-   GPT-3.5 will frequently "hallucinate" sources that are not real. 
+-   GPT-4 does this much less frequently, but it is still prudent to check any sources it references to make sure that they are correct and relevant.
+    -   GPT-4 was trained on data through September 2021, so any sources published after then will not be accessible to it.
+
+:::
 
 ::: notes
 -   Describe the process of using ChatGPT to find relevant literature
 -   Explain how ChatGPT can summarize key findings from studies
--   Discuss the example of Fardouly et al. (2015) and its findings on social
-    media's impact
+-   Note that GPT-4 only has data through September 2021, but that future models
+    will be more up-to-date or even be capable of searching the web.
 :::
 
---------------------------------------------------------------------------------
+#### How does ChatGPT identify gaps in existing literature?
 
-## 2. Research Question Development
+::: incremental
+-   I asked it this exact question.
+:::
 
--   Analyzing gaps in literature
--   Suggesting new perspectives
--   Example:
-    -   Role of online social support networks in stress management
+#### How does ChatGPT identify gaps in existing literature?
+
+ChatGPT identifies gaps in existing literature by analyzing the content of
+available research articles, reviews, and other scholarly sources. It processes
+the text to understand the main findings, methodologies, and themes discussed in
+the literature. By recognizing patterns and trends within this information,
+ChatGPT can identify areas that have not been extensively explored or addressed
+in the existing body of work.
+
+<!-- ### How does ChatGPT identify research gaps? -->
+
+To identify gaps, ChatGPT may consider:
+
+1.  Unexplored research questions or areas: ChatGPT can detect topics or
+    questions that have not been addressed or only briefly mentioned in the
+    existing literature.
+
+2.  Limitations of previous studies: By reviewing the limitations sections in
+    research papers, ChatGPT can pinpoint methodological issues, small sample
+    sizes, or other shortcomings that may warrant further investigation.
+
+3.  Contradictory findings: ChatGPT can identify inconsistencies or
+    disagreements between different studies, which could suggest a need for more
+    research to clarify these inconsistencies.
+
+4.  Underrepresented populations or contexts: ChatGPT can detect when certain
+    populations, settings, or contexts have not been adequately represented in
+    the literature, indicating an opportunity to expand the knowledge base.
+
+5.  Calls for future research: By reviewing the conclusions or future research
+    sections of papers, ChatGPT can identify areas where authors have explicitly
+    suggested the need for further investigation.
+
+It is important to note that ChatGPT's ability to identify gaps in the
+literature depends on the quality and quantity of the sources it has been
+trained on, as well as the clarity and specificity of user inputs. While it can
+provide valuable insights, it is still recommended that researchers verify
+ChatGPT's findings by consulting primary sources and conducting their own
+critical analysis of the literature.
+
+### 3. Research Question Development
+
+::: incremental
+-   Generate research question based on identified gaps in literature
+-   Example: "What factors buffer against the negative effects of social media
+    on self-esteem?"
+:::
 
 ::: notes
 -   Explain how ChatGPT can identify gaps in existing literature
 -   Describe how it can suggest new perspectives and research questions
 -   Discuss the example research question on online social support networks and
-    stress management
+    stress managementp
 :::
 
---------------------------------------------------------------------------------
+### 4. Research Design and Study Materials
 
-## 3. Research Design
-
--   Guidance on methodologies
--   Determining sample sizes and criteria
--   Example:
-    -   Investigating influence of group identity on decision-making
+::: incremental
+-   Generate survey questions, stimulus materials, vignettes, etc.
+-   Evaluate survey questions and suggest improvements.
+-   Generate possible study designs, given a research question.
+-   Example prompt: "Suggest some research designs to identify factors that
+    buffer against the negative effects of social media on self-esteem that
+    could help inform interventions and promote more positive online
+    experiences. Be specific about methodologies, determine appropriate criteria
+    and sample sizes, and explain your reasoning and analysis process."
+:::
 
 ::: notes
 -   Explain how ChatGPT can provide guidance on research methodologies
 -   Describe its ability to help with sample size determination and selection
     criteria
--   Discuss the example research design on group identity and decision-making
 :::
 
---------------------------------------------------------------------------------
+#### Investigating Factors Buffering Against Negative Effects of Social Media on Self-Esteem: Research Designs
 
-## 4. Data Collection
+##### 1. Longitudinal Survey Design
 
--   Designing survey questions and interview guides
--   Ethical considerations
--   Example:
-    -   Survey measuring impact of cultural background on moral judgments
+Methodology: Participants will be recruited from a diverse range of age groups,
+gender identities, and cultural backgrounds. Researchers can use online
+platforms or a combination of online and offline methods to recruit a large,
+diverse sample (e.g., at least 1,000 participants). Participants will be asked
+to complete an initial survey measuring their self-esteem, social media use, and
+potential buffering factors, such as social support, digital literacy, and
+coping strategies. Follow-up surveys will be conducted at 6-month intervals for
+at least two years.
 
-::: notes
--   Explain how ChatGPT can assist in creating data collection tools, like
-    surveys and interview guides
--   Describe its capability to provide advice on ethical considerations in
-    research
--   Discuss the example survey on the impact of cultural background on moral
-    judgments
-:::
+Analysis: Researchers will use linear mixed-effects modeling or other
+appropriate longitudinal analysis methods to examine the relationship between
+self-esteem, social media use, and potential buffering factors over time.
+Moderation analyses will be performed to determine whether these factors
+mitigate the negative effects of social media on self-esteem.
 
---------------------------------------------------------------------------------
+#### Investigating Factors Buffering Against Negative Effects of Social Media on Self-Esteem: Research Designs
 
-## 5. Data Analysis
+##### 2. Experimental Design with Randomized Controlled Trial:
 
+Methodology: Participants will be randomly assigned to either an intervention
+group or a control group. The intervention could be an online program designed
+to teach digital literacy, promote healthy social media use, or develop coping
+strategies for dealing with negative online experiences. Sample size should be
+determined using power analysis to ensure adequate statistical power for
+detecting group differences (e.g., at least 200 participants per group).
+
+Criteria: Researchers should develop a standardized set of criteria for
+selecting participants, such as age range, social media usage patterns, and
+baseline self-esteem levels. Additionally, eligibility criteria might include
+the absence of any pre-existing mental health conditions that could confound the
+study results.
+
+Analysis: Researchers will use analysis of covariance (ANCOVA) or other
+appropriate statistical methods to compare self-esteem levels between the
+intervention and control groups, both immediately after the intervention and at
+follow-up assessments (e.g., 3 months, 6 months, and 12 months
+post-intervention). Mediation analyses can be performed to explore whether the
+intervention's effects on self-esteem are mediated by changes in the potential
+buffering factors.
+
+#### Investigating Factors Buffering Against Negative Effects of Social Media on Self-Esteem: Research Designs
+
+##### 3. Qualitative Research Design:
+
+Methodology: Researchers can conduct semi-structured interviews or focus groups
+with a diverse sample of social media users (e.g., 30-50 participants) to
+explore their experiences, perceptions, and coping strategies related to social
+media use and self-esteem.
+
+Criteria: Participants should represent a diverse range of age groups, gender
+identities, and cultural backgrounds. Researchers can use purposive sampling to
+recruit participants who have varying levels of social media usage and
+self-esteem.
+
+Analysis: Researchers will use thematic analysis or other appropriate
+qualitative analysis methods to identify common themes, patterns, and factors
+that buffer against the negative effects of social media on self-esteem. This
+qualitative approach can provide valuable insights into the participants'
+experiences and help generate hypotheses for future quantitative research.
+
+#### Summarizing Content
+
+That was a lot of text. Let's ask ChatGPT to summarize and convert it to a
+format that works for a presentation/slideshow.
+
+Prompt: "Summarize these designs into a format that could be presented in a
+slideshow."
+
+#### Overview
+
+-   Longitudinal Survey
+-   Experimental Design with Randomized Controlled Trial
+-   Qualitative Research Design
+
+#### Longitudinal Survey
+
+-   Objective: Examine the relationship between self-esteem, social media use,
+    and buffering factors over time
+-   Large, diverse sample (e.g., 1,000 participants)
+-   Surveys at baseline and 6-month intervals for at least two years
+-   Data analysis: Linear mixed-effects modeling, moderation analyses
+
+#### Experimental Design with Randomized Controlled Trial
+
+-   Objective: Evaluate the effectiveness of an intervention to buffer against
+    negative effects of social media on self-esteem
+-   Intervention group vs. control group
+-   Sample size determined by power analysis (e.g., at least 200 participants
+    per group)
+-   Data analysis: ANCOVA, mediation analyses
+
+#### Qualitative Research Design
+
+-   Objective: Explore experiences, perceptions, and coping strategies related
+    to social media use and self-esteem
+-   Semi-structured interviews or focus groups
+-   Diverse sample of social media users (e.g., 30-50 participants)
+-   Data analysis: Thematic analysis or other qualitative analysis methods
+
+#### Conclusion
+
+-   These research designs can help identify factors that buffer against the
+    negative effects of social media on self-esteem
+-   Findings can inform interventions and strategies for promoting positive
+    online experiences
+
+### 5. Data Analysis
+
+::: incremental
 -   Data cleaning and preprocessing
--   Appropriate statistical tests
--   Example:
-    -   Pearson's correlation between social media usage and self-esteem
+    -   You can copy/paste CSV-formatted text into ChatGPT and have it perform
+        analyses, clean responses, etc.
+-   Check that data meet assumptions required for specific analysis methods
+    -   Normality, homeoscedasticity, and linearity for regression analyses
+    -   If assumptions are not met, suggest data transformations or alternative
+        analysis methods
+:::
 
 ::: notes
 -   Explain how ChatGPT can help with data cleaning and preprocessing
 -   Describe its ability to recommend appropriate statistical tests based on
     research questions and data
--   Discuss the example of using Pearson's correlation to analyze the
-    relationship between social media usage and self-esteem
 :::
 
---------------------------------------------------------------------------------
+### 6. Interpretation of Findings
 
-## 6. Interpretation of Findings
-
+::: incremental
 -   Identifying trends and patterns
 -   Implications for social psychology
 -   Example:
     -   Interpreting negative correlation between social media usage and
         self-esteem
+:::
 
 ::: notes
 -   Explain how ChatGPT can help interpret results and identify trends,
@@ -126,44 +537,102 @@ format:
     social media usage and self-esteem
 :::
 
---------------------------------------------------------------------------------
+#### Interpretation of Findings: Negative correlation between social media useage and self-esteem
 
-## 7. Writing Assistance
+Prompt: *"Assume that I ran a study that found a negative correlation between
+social media usage and self-esteem. Discuss some possible implications for
+social psychology that would be of note and important to discuss in a research
+article about this study."*
 
+If your study found a negative correlation between social media usage and
+self-esteem, it would have several important implications for the field of
+social psychology. In a research article discussing the study, it would be vital
+to address the following points:
+
+1.  The role of social comparison: A negative correlation between social media
+    usage and self-esteem might be partly explained by social comparison
+    processes. Social media platforms often showcase idealized images and
+    achievements of others, which can lead to upward social comparisons and
+    feelings of inadequacy (Festinger, 1954). Highlighting the importance of
+    social comparison in the context of social media can help researchers better
+    understand its role in self-esteem.
+
+2.  Impact on well-being: The relationship between social media use and
+    self-esteem has implications for overall well-being, as self-esteem is
+    closely linked to mental health and life satisfaction (Orth & Robins, 2013).
+    Discussing the potential consequences of reduced self-esteem due to social
+    media use, such as increased risk for depression, anxiety, and social
+    isolation, can underscore the broader impact of these findings.
+
+3.  Vulnerable populations: Certain populations, such as adolescents and young
+    adults, might be more susceptible to the negative effects of social media on
+    self-esteem due to developmental factors (e.g., identity formation) and
+    increased social media use. Identifying vulnerable populations and
+    discussing the specific risks they face can help inform targeted
+    interventions and support.
+
+#### Interpretation of Findings: Negative correlation between social media useage and self-esteem
+
+4.  Individual differences: The negative correlation between social media usage
+    and self-esteem might not be universal. It's essential to explore individual
+    differences, such as personality traits, coping strategies, or social
+    support, that may moderate the relationship and help identify factors that
+    buffer against these negative effects.
+
+5.  Quality of social media use: The nature of social media use, rather than its
+    mere quantity, might be a crucial factor in the relationship with
+    self-esteem. Discussing the role of active versus passive use, engagement in
+    supportive communities, and exposure to diverse content can help researchers
+    refine their understanding of how different types of social media
+    experiences affect self-esteem.
+
+6.  The need for interventions: The observed negative correlation highlights the
+    importance of developing interventions to mitigate the detrimental effects
+    of social media on self-esteem. Discussing potential strategies, such as
+    promoting digital literacy, encouraging healthy social media habits, and
+    enhancing online social support, can contribute to the development of
+    effective interventions.
+
+7.  Future research directions: Lastly, discussing the limitations of your study
+    and suggesting future research directions can help advance the understanding
+    of the relationship between social media use and self-esteem. This might
+    include exploring causal relationships through experimental designs,
+    identifying protective factors, or examining the impact of specific social
+    media platforms and features.
+
+By discussing these implications in a research article, you can contribute to
+the ongoing conversation about the role of social media in shaping self-esteem
+and inform the development of interventions and guidelines that promote
+healthier online experiences.
+
+### 7. Writing Assistance
+
+::: incremental
 -   Drafting and editing research papers
 -   Ensuring clear and concise writing
--   Example:
-    -   Introduction on the effect of perceived social status on prosocial
-        behavior
+-   Example: Introduction for a research article about the relationship between social media use and self-esteem
+    -   Prompt: *"Write an outline for the introduction section of a social psychology research article investigating the relationship between social media use and self-esteem, and what factors help buffer against the negative effects of social media on self esteem. After you have written the outline, write a draft of the introduction section. The style should be appropriate for a professional academic research journal in the field of social psychology. Make sure to include references (in APA style) to empirical research articles that are relevant to the subject."*
+    -   [ChatGPT's response](https://chat.openai.com/c/2555d9a6-7a61-49b1-a199-d25f09115b13)
 
-::: {.notes}
-- Explain how ChatGPT can provide support in drafting and editing research papers, conference presentations, and thesis chapters 
-- Describe itsability to ensure clear, concise, and well-organized writing 
-- Discuss the example of drafting an introduction for a paper on the effect of perceived social status on prosocial behavior
 :::
 
---------------------------------------------------------------------------------
+::: notes
+-   Explain how ChatGPT can provide support in drafting and editing research
+    papers, conference presentations, and thesis chapters
+-   Describe its ability to ensure clear, concise, and well-organized writing
+-   Discuss the example of drafting an introduction for a paper on the
+    relationship between social media use and self-esteem
+
+:::
 
 ## Conclusion
 
--   ChatGPT as a valuable resource for research
--   Assistance in various aspects of the research process
--   Improve efficiency and effectiveness in social psychology research
+ChatGPT can be a powerful resource for you as a researcher.
 
-::: notes
--   Recap the ways ChatGPT can support social psychology graduate students
--   Emphasize the benefits it offers in various stages of the research process
--   Highlight its potential to improve efficiency and effectiveness in research
-:::
-
---------------------------------------------------------------------------------
-
-## Questions?
-
-Feel free to ask any questions about how ChatGPT can support your research!
-
-::: notes
--   Encourage attendees to ask questions or share their thoughts about using
-    ChatGPT in their research
--   Be prepared to provide more examples or address any concerns they might have
+::: incremental
+-   Coding support
+-   Research and literature review assistance
+-   Idea generation
+-   Study design and survey material creation
+-   Writing assistance (outlining, editing, proofreading, style)
 :::
